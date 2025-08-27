@@ -58,11 +58,30 @@ def compress_ranges_v2(nums: List[int]) -> str:
     return answer
 
 
+# 튜터님 코드
+def compress_ranges_v3(nums: List[int]) -> str:
+    result = [] #결과 저장 문자열
+    i = 0 #현재 인덱스
+    # 1단계
+    while i < len(nums) :
+        start = i #연속된 숫자의 시작 인덱스
+        #2단계
+        while (i+1 < len(nums)) and (nums[i+1]-nums[i]==1) :
+            i += 1 #연속된 숫자의 마지막 인덱스 값이 최종 저장
+        #3단계
+        if start == i :
+            result.append(f"{nums[start]}")
+        else :
+            result.append(f"{nums[start]}-{nums[i]}")
+        #4단계
+        i += 1
+    return ",".join(result)
+
 class Problem8Solutions:
     """Problem 8 솔루션들을 관리하는 클래스"""
     
     # 솔루션들
-    SOLUTIONS = [compress_ranges_v1, compress_ranges_v2]
+    SOLUTIONS = [compress_ranges_v1, compress_ranges_v2, compress_ranges_v3]
     
     # 메타데이터
     INFO = {
@@ -78,6 +97,12 @@ class Problem8Solutions:
             "pros": "코드가 간결함",
             "cons": "조금 덜 직관적일 수 있음"
         },
+        compress_ranges_v3: {
+            "name": "While Loop",
+            "description": "while 루프를 이용한 방식",
+            "pros": "명확한 흐름",
+            "cons": "튜터님의 코드에 cons는 없다"
+        }
     }
     
     DEFAULT = compress_ranges_v1
