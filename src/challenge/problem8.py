@@ -37,7 +37,7 @@ def compress_ranges_v1(nums: List[int]) -> str:
             start = end = x
     answer = ','.join(answer)
     return answer
- 
+
 
 def compress_ranges_v2(nums: List[int]) -> str:
     """
