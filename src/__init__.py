@@ -2,7 +2,7 @@
 파이썬 함수 과제 패키지
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 
 from .basic import sum_even, count_words

@@ -45,11 +45,22 @@ def grade_pass_fail_v2(scores: Dict[str, int], threshold=60) -> Dict[str, int]:
     return answer
 
 
+def grade_pass_fail_v3(scores: Dict[str, int], threshold=60) -> Dict[str, int]:
+    """
+    반환값 예: {'pass': 2, 'fail': 2}
+    """
+    # 여기에 코드를 작성하세요
+    answer = {'pass': 0, 'fail': 0}
+    grades = [1 if score >= threshold else 0 for score in scores.values()]
+    answer['pass'] = sum(grades)
+    answer['fail'] = len(grades) - answer['pass']
+    return answer
+
 class Problem4Solutions:
     """Problem 4 솔루션들을 관리하는 클래스"""
     
     # 솔루션들
-    SOLUTIONS = [grade_pass_fail_v1, grade_pass_fail_v2]
+    SOLUTIONS = [grade_pass_fail_v1, grade_pass_fail_v2, grade_pass_fail_v3]
     
     # 메타데이터
     INFO = {
@@ -64,6 +75,12 @@ class Problem4Solutions:
             "description": "Counter를 쓴 방식",
             "pros": "간결함",
             "cons": "초보자에게 어려울 수 있음"
+        },
+        grade_pass_fail_v3: {
+            "name": "List Comprehension", 
+            "description": "리스트 컴프리헨션을 쓴 방식",
+            "pros": "간결함",
+            "cons": "가독성이 떨어질 수 있음"
         }
     }
     
