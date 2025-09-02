@@ -33,7 +33,7 @@ class TestCompressRangesBasic:
         nums_data = deepcopy(nums)
         result = solution_func(nums_data)
         solution_name = Problem8Solutions.get_solution_name(solution_func)
-        assert result in expected, f"{solution_name} failed for {description}: expected {expected}, got {result}"
+        assert result == expected, f"{solution_name} failed for {description}: expected {expected}, got {result}"
 
 
 class TestCompressRangesEdge:
@@ -73,7 +73,7 @@ class TestCompressRangesEdge:
         nums_data = deepcopy(nums)
         result = solution_func(nums_data)
         solution_name = Problem8Solutions.get_solution_name(solution_func)
-        assert result in expected, f"{solution_name} failed for {description}: expected {expected}, got {result}"
+        assert result == expected, f"{solution_name} failed for {description}: expected {expected}, got {result}"
 
 
 class TestCompressRangesCorner:
@@ -98,7 +98,7 @@ class TestCompressRangesCorner:
         nums_data = deepcopy(nums)
         result = solution_func(nums_data)
         solution_name = Problem8Solutions.get_solution_name(solution_func)
-        assert result in expected, f"{solution_name} failed for {description}: expected {expected}, got {result}"
+        assert result == expected, f"{solution_name} failed for {description}: expected {expected}, got {result}"
 
 
 if __name__ == "__main__":

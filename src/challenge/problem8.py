@@ -27,7 +27,7 @@ def compress_ranges_v1(nums: List[int]) -> str:
     반환값 예: "1-3,5,7-9"
     """
     answer = [] 
-    nums.append(1)
+    nums.append(float('inf'))
     start = end = nums[0]
     for x in nums[1:]:
         if x == end + 1:
