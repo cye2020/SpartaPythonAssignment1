@@ -1,5 +1,5 @@
 from typing import Dict
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 def merge_inventory_v1(current: Dict[str, int], arrival: Dict[str, int]) -> Dict[str, int]:
@@ -27,6 +27,15 @@ def merge_inventory_v2(current: Dict[str, int], arrival: Dict[str, int]) -> Dict
     return dict(answer)
 
 
+def merge_inventory_v3(current: Dict[str, int], arrival: Dict[str, int]) -> Dict[str, int]:
+    """
+    반환값 예: {'apple': 5, 'banana': 5, 'milk': 3, 'bread': 4}
+    """
+    # 여기에 코드를 작성하세요
+    answer = dict(Counter(current) + Counter(arrival))
+    return answer
+
+
 def merge_inventory(current: Dict[str, int], arrival: Dict[str, int]) -> Dict[str, int]:
     """
     반환값 예: {'apple': 5, 'banana': 5, 'milk': 3, 'bread': 4}
@@ -41,7 +50,7 @@ class Problem5Solutions:
     """Problem 5 솔루션들을 관리하는 클래스"""
     
     # 솔루션들
-    SOLUTIONS = [merge_inventory_v1, merge_inventory_v2]
+    SOLUTIONS = [merge_inventory_v1, merge_inventory_v2, merge_inventory_v3]
     
     # 메타데이터
     INFO = {
@@ -56,6 +65,12 @@ class Problem5Solutions:
             "description": "collections.defaultdict를 사용한 방식",
             "pros": "코드가 깔끔해짐",
             "cons": "defaultdict 개념을 알아야 함"
+        },
+        merge_inventory_v3: {
+            "name": "Counter",
+            "description": "collections.Counter를 사용한 방식",
+            "pros": "훨씬 간단해짐",
+            "cons": "Counter 개념을 알아야 함"
         }
     }
     
